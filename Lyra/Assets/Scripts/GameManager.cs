@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         oyunDurdu = true;
 
         // Text objesine metin yazma
-        spaceYazi.text = "Space tuþuna bas"; // Text objesine istediðiniz metni yazýn
+        spaceYazi.text = "Space Tuþuna Bas!"; // Text objesine istediðiniz metni yazýn
 
         // Metni görünür yap
         spaceYazi.enabled = true;

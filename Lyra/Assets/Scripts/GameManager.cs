@@ -13,13 +13,15 @@ public class GameManager : MonoBehaviour
 
     bool oyunDurdu = false;
 
-    void OnTriggerEnter2D(Collider2D other)
+
+    /*void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // Eðer tetikleyiciye "Player" objesi dokunursa
+        if (other.CompareTag("Player2")) // Eðer tetikleyiciye "Player" objesi dokunursa
         {
             OyunuDurdur();
         }
     }
+    */
 
     void Update()
     {
@@ -55,24 +57,16 @@ public class GameManager : MonoBehaviour
         pausePanel.SetActive(false); // Paneli pasif hale getir
     }
 
-    void OyunuDurdur()
-    {
-        Time.timeScale = 0f; // Oyun zamanýný durdur
-        oyunDurdu = true;
-
-        // Text objesine metin yazma
-        spaceYazi.text = "Space Tuþuna Bas!"; // Text objesine istediðiniz metni yazýn
-
-        // Metni görünür yap
-        spaceYazi.enabled = true;
-    }
-
     void OyunuDevamEttir()
     {
         Time.timeScale = 1f; // Oyun zamanýný tekrar baþlat
         oyunDurdu = false;
+    }
 
-        // Metni gizle
-        spaceYazi.enabled = false;
+
+    void OyunuDurdur()
+    {
+        Time.timeScale = 0f; // Oyun zamanýný durdur
+        oyunDurdu = true;
     }
 }

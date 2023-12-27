@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class BallController : MonoBehaviour
 {
     private Rigidbody2D rb;
-    
+    public float hizlanmaKuvveti = 100f;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,9 +33,15 @@ public class BallController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        if (other.gameObject.CompareTag("Finish"))
+        /*if (other.gameObject.CompareTag("Finish"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        */
+        // Tetikleyici alana (hýzlanma noktasý) girdiðinde kuvvet uygula
+        if (other.CompareTag("Boost"))
+        {
+            rb.AddForce(new Vector2(hizlanmaKuvveti, 0), ForceMode2D.Force);
         }
     }
 }

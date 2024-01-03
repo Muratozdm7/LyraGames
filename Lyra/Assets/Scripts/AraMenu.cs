@@ -7,12 +7,13 @@ public class AraMenu : MonoBehaviour
 {
     public void NextLevel()
     {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void RestartLevel()
     {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex - 1);
+        Debug.Log("KJDSKJDSJK");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void GoToMainMenu()

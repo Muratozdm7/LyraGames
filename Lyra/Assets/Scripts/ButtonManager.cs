@@ -7,7 +7,7 @@ public class ButtonManager : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Level1"); // Level1 sahnesini yükle
+        SceneManager.LoadScene("StoryboardScene"); // Level1 sahnesini yükle
     }
 
     public void ExitGame()

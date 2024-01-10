@@ -8,6 +8,9 @@ public class BallController : MonoBehaviour
     private Rigidbody2D rb;
     public float hizlanmaKuvveti = 100f;
 
+    public AudioSource audioSound;
+    bool _death = false;
+
 
     void Start()
     {
@@ -17,6 +20,12 @@ public class BallController : MonoBehaviour
     
     void Update()
     {
+        if (_death)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.gravityScale *= -1;
@@ -27,11 +36,21 @@ public class BallController : MonoBehaviour
         }
     }
 
+
+
+    void Death()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Engel1"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            audioSound.Play();
+            _death = true;
+            Invoke("Death", 3f);
         }
         /*if (other.gameObject.CompareTag("Finish"))
         {
